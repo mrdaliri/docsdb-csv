@@ -172,7 +172,7 @@ def get_marksheet(username, password, season, year, course_abbr, course_num, ass
                                  'old_ea_flag': old_ea_flag}
 
     misc_inputs = {}
-    for form_input in soup.find('input', {'name': ['earole', 'maxmark', 'dbarole', 'secretnum', 'bonus']}):
+    for form_input in soup.find_all('input', {'name': ['earole', 'maxmark', 'dbarole', 'secretnum', 'bonus']}):
         misc_inputs[form_input['name']] = form_input['value']
 
     return {'inputs': misc_inputs, 'marks': marksheet}
