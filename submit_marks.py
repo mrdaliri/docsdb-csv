@@ -229,7 +229,7 @@ def submit_to_docsdb(username, password, season, year, course_abbr, course_num, 
 
     if store:
         response = send_request(docsdb_url, data)
-        return response.find('Entering Marks Complete') != -1
+        return response.find('Problem inserting mark') == -1 and response.find('Entering Marks Complete') != -1
     else:
         print(
             """
